@@ -1,10 +1,10 @@
 
 
 
-var buttons = document.querySelectorAll('.set button')
+let buttons = document.querySelectorAll('.drum')
 
 
-
+// console.log(buttons[0].innerHTML)
 function playTom1() {
     new Audio('sounds/tom-1.mp3').play();
 }
@@ -26,47 +26,65 @@ function playKick() {
 function playCrash() {
     new Audio('sounds/Crash.mp3').play();
 }
+//length of our button array
+let index = buttons.length -1 ; 
 
-
-for(var i=0; i<=buttons.length; i++){
-buttons[i].addEventListener('click', function(){
-    //Get current iteration value
-    var currentDrum = this;
-    // console.log(currentDrum);
-    switch(currentDrum.innerText){
-        case "w":
-            playTom1();
-            currentDrum.style.color = "white";
-        break;
-        case "a":
-            playTom2();
-            currentDrum.style.color = "white";
-        break;
-        case "s":
-            playTom3();
-            currentDrum.style.color = "white";
-        break;
-        case "d":
-            playTom4();
-            currentDrum.style.color = "white";
-        break;
-        case "j":
-            playKick();
-            currentDrum.style.color = "white";
-        break;
-        case "k":
-            playSnare();
-            currentDrum.style.color = "white";
-        break;
-        case "l":
-            playCrash();
-            currentDrum.style.color = "white";
-        break;
-        default:
-            console.log(currentDrum)
-    }
-})
+for(let i = 0; i<= index; i ++){
+    document.addEventListener('keydown', e => {
+        switch (e.key) {
+            case 'w':
+                playTom1();
+                break;
+            case 'a':
+                playTom2();
+                break;
+            case 's':
+                playTom3();
+                break;
+            case 'd':
+                playTom4();
+                break;
+            case 'j':
+                playKick();
+                break;
+            case 'k':
+                playSnare();
+                break;
+            case 'l':
+                playCrash();
+                break;
+            default:
+                console.log(e.key);
+                break;
+        }
+    })
 }
+// for(let i =0; i<= index; i ++){
+//     buttons[i].addEventListener('click', e => {
+//     console.log(buttons[i].innerHTML);
+//     switch (buttons[i].innerHTML){
+//         case 'w':
+//             playTom1();
+//             break;
+//         case 'a':
+//             playTom2();
+//             break;
+//         case 's':
+//             playTom3();
+//             break;
+//         case 'd':
+//             playTom4();
+//             break;
+//         case 'j':
+//             playKick();
+//             break;
+//         case 'k':
+//             playSnare();
+//             break;
+//         case 'l':
+//             playCrash();
+//             break;
+//         default:
+//     }})
+// }
 
-
-// sfx.play();
