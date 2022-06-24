@@ -26,10 +26,7 @@ function playKick() {
 function playCrash() {
     new Audio('sounds/Crash.mp3').play();
 }
-//length of our button array
-let index = buttons.length -1 ; 
-
-for(let i = 0; i<= index; i ++){
+function keyPress() {
     document.addEventListener('keydown', e => {
         switch (e.key) {
             case 'w':
@@ -56,35 +53,40 @@ for(let i = 0; i<= index; i ++){
             default:
                 console.log(e.key);
                 break;
-        }
-    })
+}})
+    
 }
-// for(let i =0; i<= index; i ++){
-//     buttons[i].addEventListener('click', e => {
-//     console.log(buttons[i].innerHTML);
-//     switch (buttons[i].innerHTML){
-//         case 'w':
-//             playTom1();
-//             break;
-//         case 'a':
-//             playTom2();
-//             break;
-//         case 's':
-//             playTom3();
-//             break;
-//         case 'd':
-//             playTom4();
-//             break;
-//         case 'j':
-//             playKick();
-//             break;
-//         case 'k':
-//             playSnare();
-//             break;
-//         case 'l':
-//             playCrash();
-//             break;
-//         default:
-//     }})
-// }
+//length of our button array
+let index = buttons.length -1 ; 
+
+// for loop through each button object in array
+for(let i = 0; i<= index; i ++){
+   
+    buttons[i].addEventListener('click', e => {
+        switch (buttons[i].innerHTML){
+                    case 'w':
+                        playTom1();
+                        break;
+                    case 'a':
+                        playTom2();
+                        break;
+                    case 's':
+                        playTom3();
+                        break;
+                    case 'd':
+                        playTom4();
+                        break;
+                    case 'j':
+                        playKick();
+                        break;
+                    case 'k':
+                        playSnare();
+                        break;
+                    case 'l':
+                        playCrash();
+                        break;
+                    default:
+    }})
+}
+keyPress()
 
